@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="homepage-4.css">
+    <title>Student Info</title>
+</head>
+<body>
+    <header>
+        <nav>Get Studen Info Here</nav>
+        <main> <h1>Select a name to get information on that student</h1></main>
+    </header>
+    <section class="select-student" id="studentSelect">
+       
+        <form action="" >
+            <select name="students" id="students" onchange="selectedStudent(this)">
+
+            </select>
+        </form>
+    </section>
+    <section class="student-info" id="info">
+        <h1 id="no"></h1>
+        <p id="name"></p>
+        <p id="age"></p>
+        <p id="birthday"></p>
+        <p id="course"></p>
+        <button onclick="back()">Back</button>
+    </section>
+    <script src="homepage-4.js" ></script>
+</body>
+</html>
