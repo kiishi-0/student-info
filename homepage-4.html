@@ -10,15 +10,32 @@
 <body>
     <header>
         <nav>Get Studen Info Here</nav>
-        <main> <h1>Select a name to get information on that student</h1></main>
+        <!-- <main> <h1>Select a name to get information on that student</h1></main> -->
     </header>
     <section class="select-student" id="studentSelect">
        
         <form action="" >
             <select name="students" id="students" onchange="selectedStudent(this)">
-
+                    <option>select the students below</option>
             </select>
         </form>
+        <div class="btn-div">
+            <button onclick="addStudent()">Add Student</button>
+            <button onclick="addRemove()">Remove Student</button>
+        </div>
+        <div class="add" id="addStudent">
+            <form action="">
+                <input type="text" placeholder="Student Name" name="addedName" id="addedName">
+                <input type="text" placeholder="Student Age" name="addedAge" id="addedAge">
+                <input type="text" placeholder="Birthday e.g 01-12-2021" name="addedBirthday" id="addedBirthday">
+                <input type="text" placeholder="Course" name="addedCourse" id="addedCourse">
+            </form>
+            <div class="btn">
+                <button onclick="closeDiv()">Close</button>
+                <button onclick="doneAdding()">Done</button>
+            </div>
+            
+        </div>
     </section>
     <section class="student-info" id="info">
         <h1 id="no"></h1>

@@ -1,15 +1,16 @@
 let studentSelect = document.getElementById('students');
 let studentOption;
 const studentInfo = document.getElementById('info');
-let selectionBox = document.getElementById('studentSelect')
+let selectionBox = document.getElementById('studentSelect');
+let addDiv = document.getElementById('addStudent');
 const studentObj = {
-    'default':{
-        'id-no': 0,
-        name:'',
-        age:20,
-        birthday: '11-04-2001',
-        course: 'Computer Science'
-    },
+    // 'default':{
+    //     'id-no': 0,
+    //     name:'',
+    //     age:20,
+    //     birthday: '11-04-2001',
+    //     course: 'Computer Science'
+    // },
     'student_1':{
         'id-no': 1,
         name:'Anita benga',
@@ -46,18 +47,19 @@ const studentObj = {
         course: 'Law'
     }
 };
-const insertStudents = () =>{
+const insertStudents = () =>{// CREATE OPTION TAGS AND PUT STUDENT NAMES FROM THE DATABASE BTWN THEM
     let std;
     for(std in studentObj){
         studentOption = document.createElement('option');
         studentOption.innerText=studentObj[std].name;
+        studentOption.setAttribute('id', 'opt')
         studentSelect.appendChild(studentOption);
     }
 }
-document.onload = insertStudents();
+document.onload = insertStudents();//INSERT STUDENTS FROM THE DATABASE INTO THE SELECT TAG
 document.onload = studentInfo.style.display = 'none'; 
 
-const selectedStudent = std =>{
+const selectedStudent = std =>{ //DISPLAY SELECTED STUDENT 
     studentInfo.style.display = 'flex';
     selectionBox.style.display = 'none';
     for(let stud in studentObj){
@@ -81,4 +83,33 @@ const back = () =>{
     studentInfo.style.display = 'none';
     selectionBox.style.display = 'flex';
     // console.log('gone back')
+}
+const addStudent= () =>{
+    addDiv.style.height = '300px'
+}
+const closeDiv = () =>{
+    addDiv.style.height = '0';
+}
+const doneAdding = () =>{
+    let name =  document.getElementById('addedName');
+    let age = document.getElementById('addedAge');
+    let birth = document.getElementById('addedBirthday');
+    let course = document.getElementById('addedCourse');
+    let lenOfObj = Object.keys(studentObj).length + 1;
+    console.log(name.value);
+
+    studentObj[`Student_${lenOfObj}`] = {};
+    studentObj[`Student_${lenOfObj}`]['name'] = name.value;
+    studentObj[`Student_${lenOfObj}`]['age'] = age.value;
+    studentObj[`Student_${lenOfObj}`]['birthday'] = birth.value;
+    studentObj[`Student_${lenOfObj}`]['course'] = course.value;
+    addNewStudent()
+}
+
+const addNewStudent = () =>{
+    let opt = document.getElementById('opt');
+    while(studentSelect.lastChild.id === opt.id){
+        studentSelect.remove(opt);
+    }    
+    // insertStudents();
 }
