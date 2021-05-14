@@ -78,8 +78,17 @@ button{
     transition: height .4s linear;
     align-items: center;
 }
-.add button{
-    width: 120px;
+.add .btn{
+    display: flex;
+    /* background-color: red; */
+    width: 100%;
+    justify-content: space-evenly;
+}
+.add .btn .add-div-btn{
+    min-width: 40%;
+    /* margin: 0 20px; */
+    display: inline-block;
+    /* background: #090; */
     /* align-self: flex-start; */
     /* justify-self: flex-start; */
 }
