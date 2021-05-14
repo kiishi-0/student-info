@@ -71,7 +71,7 @@ const selectedStudent = std =>{ //DISPLAY SELECTED STUDENT
             let course = document.getElementById('course');
             id.innerText = `Student No : ${studentObj[stud]['id-no']}`
             name.innerText = `Name - ${studentObj[stud].name}`;
-            age.innerText = `Age -${studentObj[stud].age}`;
+            age.innerText = `Age - ${studentObj[stud].age}`;
             birthday.innerText = `Date of Birth - ${studentObj[stud].birthday}`;
             course.innerText = `Course of Study - ${studentObj[stud].course}`;
             // console.log('entered the information')
@@ -85,7 +85,7 @@ const back = () =>{
     // console.log('gone back')
 }
 const addStudent= () =>{
-    addDiv.style.height = '300px'
+    addDiv.style.height = '400px'
 }
 const closeDiv = () =>{
     addDiv.style.height = '0';
@@ -95,10 +95,12 @@ const doneAdding = () =>{
     let age = document.getElementById('addedAge');
     let birth = document.getElementById('addedBirthday');
     let course = document.getElementById('addedCourse');
+    let id = document.getElementById('addedId');
     let lenOfObj = Object.keys(studentObj).length + 1;
     console.log(name.value);
 
     studentObj[`Student_${lenOfObj}`] = {};
+    studentObj[`Student_${lenOfObj}`]['id-no'] = id.value;
     studentObj[`Student_${lenOfObj}`]['name'] = name.value;
     studentObj[`Student_${lenOfObj}`]['age'] = age.value;
     studentObj[`Student_${lenOfObj}`]['birthday'] = birth.value;
@@ -111,5 +113,5 @@ const addNewStudent = () =>{
     while(studentSelect.lastChild.id === opt.id){
         studentSelect.remove(opt);
     }    
-    // insertStudents();
+    insertStudents();
 }
